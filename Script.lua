@@ -1,57 +1,56 @@
--- /////////// Recoil Control Settings  /////////
- 
--- //// SMG == GUNS WITH LOW RECOIL AND WILL RAPID FIRE FAST 
--- //// AR == GUNS WITH HIGH RECOIL AND WILL RAPID FIRE SLOW
- 
--- //// Recoil is handled via # of pixels moved (SMGRecoilMouseMoveAmount), 
--- //// and a delay between each time this movement happens (SMGRapidFireDelayBetweenShots)
- 
--- //// Recoil is enabled by Numlock, and can be changed in control settings, Button 4 on your mouse is rapid fire. It's primed by right click.
- 
--- //// CHANGE THE BELOW INFO -- 
--- //// WHEN {SMGorARtoggle/Scrolllock by default} IS ON,    IT IS USING SMG SETTINGS
--- //// WHEN {SMGorARtoggle/Scrolllock by default} IS OFF,   IT IS USING AR SETTINGS
- 
--- //////////////////////////////////////// RECOIL COMPENSATION SETTINGS -- ////////////////////////////////////////////////
- 
- 
-SMGRecoilMouseMoveAmount    = 8  --           // distance the mousewill move down for recoil compensation NO decimals
-ARRecoilMouseMoveAmount     = 10 --           // MORE == Pulls Mouse down more. 1 mousemove==100 DelaySleep
- 
-SMGMouseMoveDelaySleep      = 8  --           // Delay in miliseconds between each time RecoilMouseMoveAmount
-ARMouseMoveDelaySleep       = 8  --           //  More==less mouse pull down, 1 mousemove==100 DelaySleep
- 
-HorizontalRecoilModifier    = 0  --           // -1 pulls the mouse to the left slightly when firing for compensation
---                                            // If your recoil moves right, try 1. 0==dont move left or right
- 
--- //////////////////////////////////////// RAPID FIRE SETTINGS -- ////////////////////////////////////////////////
- 
-SMGRapidFireDelayBetweenShots   = 80 --      // Delay in (roughly) miliseconds 
-ARRapidFireDelayBetweenShots    = 110 --     // between each time SMG/AR/RecoilMouseMoveAmount moves your mouse  
- 
-SMGRapidFireRecoilCompensation  = 16 --      // In between each rapid fire shot, it will pull the mouse down
-ARRapidFireRecoilCompensation   = 9 --       // More == Pulling the Mouse down more between shots
- 
-RapidFireMousePressDurationSMG  = 9 --       // How long is left click held for rapid fire
-RapidFireMousePressDurationAR   = 9 --       //  in milliseconds. 1 == 1 tap
- 
+-- /////////// 后坐力控制设置  /////////
+
+-- //// SMG == 低后坐力且快速连射的枪支 
+-- //// AR == 高后坐力且慢速连射的枪支
+
+-- //// 后坐力是通过移动的像素数（SMGRecoilMouseMoveAmount）处理的， 
+-- //// 以及每次移动之间的延迟（SMGRapidFireDelayBetweenShots）
+
+-- //// 后坐力通过开启 Numlock 启用，控制设置中可进行更改，鼠标的第 4 个按钮是快速连射。通过右键启用。
+
+-- //// 更改以下信息 --
+-- //// 当 {SMGorARtoggle/默认 Scrolllock} 开启时，使用 SMG 设置
+-- //// 当 {SMGorARtoggle/默认 Scrolllock} 关闭时，使用 AR 设置
+
+-- //////////////////////////////////////// 后坐力补偿设置 -- ////////////////////////////////////////////////
+
+SMGRecoilMouseMoveAmount    = 8  --           // 鼠标向下移动的距离用于补偿后坐力，不能使用小数
+ARRecoilMouseMoveAmount     = 10 --           // 更大值 == 鼠标向下拉得更多。1 次鼠标移动 == 100 毫秒延迟
+
+SMGMouseMoveDelaySleep      = 8  --           // 每次鼠标移动的延迟（毫秒）
+ARMouseMoveDelaySleep       = 8  --           // 延迟越多，鼠标下拉越少。1 次鼠标移动 == 100 毫秒延迟
+
+HorizontalRecoilModifier    = 0  --           // -1 表示在射击时稍微向左拉鼠标以进行补偿
+--                                            // 如果后坐力向右移动，尝试设为 1。0 == 不进行左右移动
+
+-- //////////////////////////////////////// 快速连射设置 -- ////////////////////////////////////////////////
+
+SMGRapidFireDelayBetweenShots   = 80 --      // 每次 SMG/AR/后坐力移动鼠标之间的延迟（大致）毫秒数
+ARRapidFireDelayBetweenShots    = 110 --     // 使鼠标每次移动的延迟
+
+SMGRapidFireRecoilCompensation  = 16 --      // 每次快速连射之间，鼠标将向下拉
+ARRapidFireRecoilCompensation   = 9  --      // 更大值 == 每次连射之间向下拉得更多
+
+RapidFireMousePressDurationSMG  = 9  --      // 快速连射时左键按住的时间（毫秒）
+RapidFireMousePressDurationAR   = 9  --      // 以毫秒为单位。1 == 1 次点击
+
 -- ///////////////////////////////////////////////////////////////////////////////////////////////////// 
--- //////////////////////////////////////// CONTROLS -- ////////////////////////////////////////////////
+-- //////////////////////////////////////// 控制设置 -- ////////////////////////////////////////////////
 -- ///////////////////////////////////////////////////////////////////////////////////////////////////// 
- 
--- //// Options for binding include "scrolllock" "capslock" and "numlock" 
- 
-LockKey = "numlock"             --    // (TURNS ENTIRE SCRIPT ON/OFF) 
---                                    // Options for binding include "scrolllock" "capslock" and "numlock" 
- 
-SMGorARtoggle = "scrolllock"    --    // alternates between ARs and SMGs 
---                                    //  (or lots of recoil or not a lot of  recoil)
- 
-RapidFireButton = 5 --       https://i.imgur.com/WinEVPi.png list of logitech mouse keys. 
---                           I have a G602/g604 with 11 keys. First thumb button == 4 and goes up to 10
- 
--- //////////////////////////////////////// ONLY LUA CODERS TOUCH BELOW -- ////////////////////////////////////////////////
- 
+
+-- //// 绑定的选项包括 "scrolllock" "capslock" 和 "numlock" 
+
+LockKey = "numlock"             --    // （启用/禁用整个脚本）
+--                                    // 可用于绑定的选项包括 "scrolllock" "capslock" 和 "numlock"
+
+SMGorARtoggle = "capslock"    --    // 在 AR 和 SMG 之间切换 
+--                                    //  （或大后坐力枪支和小后坐力枪支）
+
+RapidFireButton = 5 --          https://i.imgur.com/WinEVPi.png 查看罗技鼠标键的列表。 
+--                               我使用的是 G602/g604，拥有 11 个键。第一个拇指按钮 == 4，一直到 10
+
+-- //////////////////////////////////////// 下面部分仅限 Lua 开发者修改 -- ////////////////////////////////////////////////
+
 RapidFireSleepMin = 0
 RapidFireSleepMax = 0
 MouseMove = 0
@@ -59,17 +58,17 @@ NRMin = 0
 NRMax = 0
 Countx = 0
 CountY = 0
- 
+
 -- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- //////////////////////////////////////// ONLY LUA CODERS TOUCH BELOW -- ////////////////////////////////////////////////
+-- //////////////////////////////////////// 下面部分仅限 Lua 开发者修改 -- ////////////////////////////////////////////////
 -- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- /////////////////////////////////////// THIS SECTION IS (SMGorARtoggle){IF SCROLLOCK IS on}  ///////////////////////////
+-- //////////////////////////////////////// 此部分为 (SMGorARtoggle){当 Scrolllock 开启时}  ///////////////////////////
 -- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
- 
+
 function CheckForSMGorAR()
     if IsKeyLockOn(SMGorARtoggle) then
  
-        NoRecoilMouseMoveVert = SMGRecoilMouseMoveAmount -- How Much recoil handling for automatic guns. More==pulldown mouse more
+        NoRecoilMouseMoveVert = SMGRecoilMouseMoveAmount -- 自动枪支的后坐力处理程度。值越大==鼠标向下拉得更多
         if (SMGRapidFireDelayBetweenShots > 7) then
             RapidFireSleepMin = SMGRapidFireDelayBetweenShots - 7
             RapidFireSleepMax = SMGRapidFireDelayBetweenShots + 7
@@ -80,7 +79,7 @@ function CheckForSMGorAR()
         MouseMove = SMGRapidFireRecoilCompensation
         SleepNoRecoilMin = SMGMouseMoveDelaySleep - 1
         SleepNoRecoilMax = SMGMouseMoveDelaySleep + 1
-        -- // this if else is creating a range of numbers to work from for random generators
+        -- // 此 if-else 创建了一个范围供随机生成器使用
         if (RapidFireMousePressDurationSMG > 1) then
             PressSpeedMin = RapidFireMousePressDurationSMG - 1
             PressSpeedMax = RapidFireMousePressDurationSMG + 1
@@ -88,9 +87,9 @@ function CheckForSMGorAR()
             PressSpeedMin = RapidFireMousePressDurationSMG
             PressSpeedMax = RapidFireMousePressDurationSMG + 1
         end
-        -- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        -- /////////////////////// THIS IS FOR ARs OR HighRecoil GUNS. {IF SCROLLOCK IS OFF} ///////////////////////
-        -- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -- /////////////////////// 以下是 AR 或高后坐力枪支的设置 {当 Scrolllock 关闭时} ///////////////////////
+    -- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
     else
         NoRecoilMouseMoveVert = ARRecoilMouseMoveAmount
@@ -114,8 +113,8 @@ function CheckForSMGorAR()
         end
     end
 end
-LC = 1 -- Change this   // 1 = Left Click, 2= Middle Mouse, 3= Right Click
-RC = 3 -- Change this   // LC = Fire button, RC = Aim Button
+LC = 1 -- 更改此项   // 1 = 左键点击, 2= 中键点击, 3= 右键点击
+RC = 3 -- 更改此项   // LC = 开火键, RC = 瞄准键
  
 -- 
 function Resetter()
@@ -197,6 +196,5 @@ function OnEvent(event, arg)
                 Sleep(15)
             end
         until not IsMouseButtonPressed(3)
- 
     end
 end
